@@ -6,7 +6,24 @@
 				"navigationBarTitleText": "首页"
 			}
 		}
-	],
+	    ,{
+            "path" : "pages/index/detail",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/movement/movement",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/me/me",
+            "style" : {}
+        }
+        
+        ,{
+            "path" : "pages/shop/shop",
+            "style" : {}
+        }
+    ],
 	"globalStyle": {
 		"navigationStyle": "custom",
 		"navigationBarTextStyle": "black",

@@ -1,6 +1,6 @@
 <template>
 	<view class="item">
-		<view class="flex  padding-xs justify-between">
+		<view class="flex padding-xs justify-between">
 			<view class="flex  padding-xs justify-start align-center">
 				<view class="bg-white padding-sm margin-xs radius text-lg text-bold">{{title}}</view>
 				<view class="bg-gray padding-xs margin-xs radius text-sm" @click="showModal" data-target="RadioModal">{{selectedRadio}}<text
@@ -31,7 +31,7 @@
 			</view>
 		</view>
 
-		<view class="flex padding-sm margin-xs text-lg justify-center align-center"><text>更多</text> <text class="cuIcon-roundright"></text></view>
+		<view class="flex padding-sm margin-xs text-lg justify-center align-center" @click="toDetail"><text>更多</text> <text class="cuIcon-roundright"></text></view>
 
 		<view class="cu-modal" :class="modalName=='RadioModal'?'show':''" @tap="hideModal">
 			<view class="cu-dialog" @tap.stop="">
@@ -104,6 +104,12 @@
 			},
 			refresh(){
 				console.log("请求api，换一批")
+			},
+			toDetail(){
+				uni.navigateTo({
+					url: '/pages/index/detail'
+				});
+				
 			}
 		}
 	}

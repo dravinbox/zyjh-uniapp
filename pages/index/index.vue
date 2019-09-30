@@ -1,9 +1,15 @@
 <template>
 	<view>
-
+		<cu-custom bgColor="bg-gray fix" >
+			<block slot="content">
+				<image src="../../static/logo-zy.png" style="width: 30px;height: 30px;"></image>
+			</block>
+		</cu-custom>	
+		
+		
 		<!-- 首页顶部菜单 -->
-		<scroll-view scroll-x scroll-y="false" class="bg-white nav fixed">
-			<view class="flex text-center">
+		<scroll-view scroll-x scroll-y="false" class="bg-white nav fixed cate-bar">
+			<view class="flex text-center solid-bottom">
 				<view class="cu-item flex-sub" :class="index==TabCur?'text-orange cur':''" v-for="(item,index) in oneCategory" :key="index"
 				 @tap="tabSelect" :data-id="index">
 					{{item}}
@@ -24,14 +30,14 @@
 
 		</scroll-view>
 
-		<!-- 首页底部 -->
+		<!-- 底部 -->
 		<view class="cu-bar tabbar bg-white shadow foot">
-			<view class="action" :class="PageCur=='dynamic'?'new-text-blue':'new-text-black'" @click="NavChange" data-cur="dynamic">
-				<view :class="PageCur=='dynamic'?'cuIcon-homefill':'cuIcon-home'"></view>
+			<view class="action" :class="PageCur=='home'?'new-text-blue':'new-text-black'" @click="NavChange" data-cur="home">
+				<view :class="PageCur=='home'?'cuIcon-homefill':'cuIcon-home'"></view>
 				<view>首页</view>
 			</view>
-			<view class="action " :class="PageCur=='release'?'new-text-blue':'new-text-black'" @click="NavChange" data-cur="release">
-				<view :class="PageCur=='release'?'cuIcon-rank':'cuIcon-rankfill'"></view>
+			<view class="action " :class="PageCur=='movements'?'new-text-blue':'new-text-black'" @click="NavChange" data-cur="movements">
+				<view :class="PageCur=='movements'?'cuIcon-rank':'cuIcon-rankfill'"></view>
 				<view>走势</view>
 			</view>
 			<view class="action " :class="PageCur=='shop'?'new-text-blue':'new-text-black'" @click="NavChange" data-cur="shop">
@@ -144,7 +150,7 @@
 
 				],
 
-				PageCur: 'dynamic',
+				PageCur: 'home',
 				oneCategory: [
 					'时时彩',
 					'PK10',
@@ -173,21 +179,32 @@
 		methods: {
 
 			tabSelect(e) {
+				console.log(this.CustomBar)
 				this.TabCur = e.currentTarget.dataset.id;
 				this.scrollLeft = (e.currentTarget.dataset.id - 1) * 60
 			},
 			NavChange: function(e) {
-				this.PageCur = e.currentTarget.dataset.cur
+				let PageCur = e.currentTarget.dataset.cur
+				
 
-				// if(PageCur=='me'){
-				// 	uni.navigateTo({
-				// 		url: '../category/personal?classItem=me'
-				// 	});
-				// }else if(PageCur=='release'){
-				// 	uni.navigateTo({
-				// 		url: '../category/release?classItem=release'
-				// 	});
-				// }
+				if(PageCur=='me'){
+					uni.navigateTo({
+						url: '/pages/me/me'
+					});
+				}else if(PageCur=='shop'){
+					uni.navigateTo({
+						url: '/pages/shop/shop'
+					});
+				}else if(PageCur=='movements'){
+					uni.navigateTo({
+						url: '/pages/movement/movement'
+					});
+				}else {
+					uni.navigateTo({
+						url: '/pages/index/index'
+					});
+				}
+				
 			},
 
 
@@ -195,10 +212,15 @@
 	}
 </script>
 
-<style>
+<style lang="scss">
+
+	.cate-bar{
+		top: 50px;
+		
+	}
 	.item-list {
 		position: absolute;
-		top: 180upx;
-		bottom: 90upx;
+		top: 280rpx;
+		bottom: 90rpx;
 	}
 </style>

@@ -7,6 +7,7 @@
 			
 		    uni.getSystemInfo({
 		        success: function(e) {
+					
 		            // #ifndef MP
 		            Vue.prototype.StatusBar = e.statusBarHeight;
 		            if (e.platform == 'android') {
@@ -25,6 +26,9 @@
 		            Vue.prototype.StatusBar = e.statusBarHeight;
 		            Vue.prototype.CustomBar = e.statusBarHeight + e.titleBarHeight;
 		            // #endif
+					
+					console.log("状态栏高度",Vue.prototype.StatusBar)
+					console.log("自定义栏高度",Vue.prototype.CustomBar)
 		        }
 		    })
 		},
