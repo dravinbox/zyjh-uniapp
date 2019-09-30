@@ -19,9 +19,9 @@
 
 		<!-- 首页列表 -->
 		<scroll-view scroll-y scroll-with-animation :scroll-top="scrollTop" class="item-list">
-			<IndexItem></IndexItem>
-			<IndexItem></IndexItem>
-			<IndexItem @tap="showModal"></IndexItem>
+			<IndexItem v-for="(item,index) in indexItemList" :key="index" :title="item.title" :radioList="item.radioList"
+			 :tableList="item.tableList"></IndexItem>
+
 		</scroll-view>
 
 		<!-- 首页底部 -->
@@ -45,7 +45,7 @@
 			</view>
 		</view>
 
-		
+
 
 	</view>
 </template>
@@ -58,6 +58,92 @@
 		},
 		data() {
 			return {
+				indexItemList: [{
+						'title': '定位胆',
+						'radioList': [
+							'定胆个位',
+							'定胆十位',
+							'定胆百位',
+							'定胆千位',
+							'定胆万位',
+						],
+						tableList: [{
+								'planName': '桃花计划',
+								'codeNum': 5,
+								'nper': 1,
+								'rate': 100
+							},
+							{
+								'planName': '桃花计划',
+								'codeNum': 5,
+								'nper': 1,
+								'rate': 100
+							},
+							{
+								'planName': '桃花计划',
+								'codeNum': 5,
+								'nper': 1,
+								'rate': 100
+							},
+							{
+								'planName': '桃花计划',
+								'codeNum': 5,
+								'nper': 1,
+								'rate': 100
+							},
+							{
+								'planName': '桃花计划',
+								'codeNum': 5,
+								'nper': 1,
+								'rate': 100
+							},
+						]
+					},
+					{
+						'title': '定位胆',
+						'radioList': [
+							'个位大小',
+							'十位大小',
+							'百位大小',
+							'千位大小',
+							'万位大小',
+						],
+						tableList: [{
+								'planName': '水星计划',
+								'codeNum': 5,
+								'nper': 1,
+								'rate': 100
+							},
+							{
+								'planName': '水星计划',
+								'codeNum': 5,
+								'nper': 1,
+								'rate': 100
+							},
+							{
+								'planName': '水星计划',
+								'codeNum': 5,
+								'nper': 1,
+								'rate': 100
+							},
+							{
+								'planName': '水星计划',
+								'codeNum': 5,
+								'nper': 1,
+								'rate': 100
+							},
+							{
+								'planName': '水星计划',
+								'codeNum': 5,
+								'nper': 1,
+								'rate': 100
+							},
+						]
+					}
+
+
+				],
+
 				PageCur: 'dynamic',
 				oneCategory: [
 					'时时彩',
@@ -77,15 +163,15 @@
 				title: 'Hello',
 				scrollLeft: 0,
 				scrollTop: 0,
-				
-				
+
+
 			}
 		},
 		onLoad() {
 
 		},
 		methods: {
-			
+
 			tabSelect(e) {
 				this.TabCur = e.currentTarget.dataset.id;
 				this.scrollLeft = (e.currentTarget.dataset.id - 1) * 60
