@@ -17,6 +17,10 @@ body {
 	font-family: Helvetica Neue, Helvetica, sans-serif;
 }
 
+uni-page-body{
+	height: calc(100% - 50px);
+}
+
 view,
 scroll-view,
 swiper,
