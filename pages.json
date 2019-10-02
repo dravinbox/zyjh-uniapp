@@ -15,16 +15,27 @@
             "style" : {}
         }
         ,{
+            "path" : "pages/movement/detail",
+            "style" : {}
+        }
+        ,{
             "path" : "pages/me/me",
             "style" : {}
         }
-        
+        ,{
+            "path" : "pages/me/me1",
+            "style" : {}
+        }
+		,{
+		    "path" : "pages/me/me2",
+		    "style" : {}
+		}
         ,{
             "path" : "pages/shop/shop",
             "style" : {}
         }
         ,{
-            "path" : "pages/movement/detail",
+            "path" : "pages/shop/detail",
             "style" : {}
         }
     ],

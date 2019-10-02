@@ -1,15 +1,18 @@
 <template>
-	<view id="movement">
-		<view id="title">走势</view>
+	<view id="me">
+		<view id="title">
+			<navigator v-for="(item,index) in ['开奖提醒','计划设置','联系我们']" :class="pages==index?'you':''" :url="'/pages/me/me'+(index==0?'':index)">
+				{{item}}
+			</navigator>
+		</view>
 		<view id="main">
-			<div class="Wrapper" v-for="(items,ind) in datazzz">
-				<p class="title">{{items.title}}</p>
-				<view class="items">
-					<view v-for="(item,index) in items.data" class="item" :style="index%3==1?'margin:auto 3.3%':''" @click="pagee">
-						{{item}}-{{index%3}}
-					</view>
-				</view>
-			</div>
+			<view class="screen">
+				<view v-for="(item,index) in ['时时彩','PK10','11选5','快三','快乐十分','更多']" @click="clickscreen=index" class="item" :class="clickscreen==index?'you':''"><span>{{item}}</span></view>
+			</view>
+			<view class="list">
+				<li v-for="item in 20">重庆时时彩 <label>
+						<checkbox value="cb" checked="true" style="transform:scale(0.7);float:right" /></label></li>
+			</view>
 		</view>
 		<!-- 底部 -->
 		<view class="cu-bar tabbar bg-white shadow foot">
@@ -38,28 +41,23 @@
 	export default {
 		data() {
 			return {
-				PageCur: 'shop',
-				datazzz: [{
-					title: '时时彩',
-					data: ['重庆时时彩', '腾讯', '北京', '11', '22']
+				PageCur: 'me',
+				pages:'1',
+				shadow: false,
+				clickscreen: '0',
+				checkbox: [{
+					value: 'A',
+					checked: true
 				}, {
-					title: '时时彩',
-					data: ['重庆时时彩', '腾讯', '北京', '11', '22']
+					value: 'B',
+					checked: true
 				}, {
-					title: '时时彩',
-					data: ['重庆时时彩', '腾讯', '北京', '11', '22']
-				}, {
-					title: '时时彩',
-					data: ['重庆时时彩', '腾讯', '北京', '11', '22']
+					value: 'C',
+					checked: false
 				}]
 			}
 		},
 		methods: {
-			pagee: function(e) {
-				uni.navigateTo({
-					url: '/pages/shop/detail'
-				});
-			},
 			NavChange: function(e) {
 				let PageCur = e.currentTarget.dataset.cur
 
@@ -88,7 +86,7 @@
 </script>
 
 <style lang="scss">
-	#movement {
+	#me {
 		height: 100%;
 
 		#title {
@@ -98,37 +96,56 @@
 			font-size: 17px;
 			background: #f4f4f4;
 			height: 50px;
+			display: flex;
+			justify-content: space-around;
+			padding: 0 60px;
+			font-size: 14px;
+
+			.you {
+				font-size: 17px;
+				font-weight: bold;
+			}
 		}
 
 		#main {
 			height: calc(100% - 50px);
-			padding: 0 10px;
-			overflow: auto;
+			background: #fff;
+			padding: 10px;
 
-			.Wrapper {
-				width: 100%;
+			.screen {
+				height: 60px;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
 				border-bottom: 1px solid #ccc;
-				padding: 20px 0;
 
-				.title {
-					font-size: 18px;
-					font-weight: bold;
-					margin-bottom: 5px;
+				.item {
+					display: inline-block;
+					padding: 2px 10px;
+					border-right: 1px solid #ccc;
+					text-align: center;
+					span{
+						padding-bottom: 20px;
+					}
 				}
 
-				.items {
-					display: flex;
-					flex-wrap: wrap;
-
-					.item {
-						width: 30%;
-						margin: 5px 0;
-						background: #fff;
-						text-align: center;
-						border: 1px solid #ddd;
-						height: 40px;
-						line-height: 40px;
+				.you {
+					span {
+						color: #39B54A;
+						border-bottom: 2px solid #39B54A;
 					}
+				}
+			}
+
+			.list {
+				height: calc(100% - 110px);
+				overflow: auto;
+
+				>li {
+					list-style: none;
+					height: 40px;
+					border-bottom: 1px solid #ccc;
+					line-height: 40px;
 				}
 			}
 		}

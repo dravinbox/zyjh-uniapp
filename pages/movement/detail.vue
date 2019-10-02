@@ -5,31 +5,32 @@
 			<view class="screen">
 				<scroll-view scroll-x scroll-y="false" class="bg-white nav cate-bar">
 					<view class="number">
-						<view class="item" v-for="(item,index) in 10" @click="screen.push(item-1)">{{item-1}}</view>
+						<view class="item" v-for="(item,index) in 10" @click="screen.indexOf(item-1)>=0?screen.splice(screen.indexOf(item-1),1):screen.push(item-1)"
+						 :class="screen.indexOf(item-1)>=0?'you':'wu'">{{item-1}}</view>
 					</view>
 				</scroll-view>
 				<view class="click">
-					<view class="item" @click="screen=[5,6,7,8,9]">大</view>
-					<view class="item" @click="screen=[0,1,2,3,4]">小</view>
-					<view class="item" @click="screen=[1,3,5,7,9]">单</view>
-					<view class="item" @click="screen=[0,2,4,6,8]">双</view>
-					<view class="clear">清除</view>
+					<view class="item" @click="moduleclick([5,6,7,8,9])" :class="moduleclick([5,6,7,8,9],true)?'you':'wu'">大</view>
+					<view class="item" @click="moduleclick([0,1,2,3,4])" :class="moduleclick([0,1,2,3,4],true)?'you':'wu'">小</view>
+					<view class="item" @click="moduleclick([1,3,5,7,9])" :class="moduleclick([1,3,5,7,9],true)?'you':'wu'">单</view>
+					<view class="item" @click="moduleclick([0,2,4,6,8])" :class="moduleclick([0,2,4,6,8],true)?'you':'wu'">双</view>
+					<view class="clear" @click="screen=[]">清除</view>
 				</view>
 			</view>
 			<view class="contents">
 				<view class="title">
 					<view class="item datenumber">期数</view>
 					<view class="item date">日期</view>
-					<view class="item Number">号码</view>
-					<view class="item SingleDouble">单双</view>
-					<view class="item Size">大小</view>
+					<view class="item Number" @click="type=1"><span :class="type==1?'you':''">号码</span></view>
+					<view class="item SingleDouble" @click="type=2"><span :class="type==2?'you':''">单双</span></view>
+					<view class="item Size" @click="type=3"><span :class="type==3?'you':''">大小</span></view>
 				</view>
 				<view class="content">
 					<view class="DataWrapper" v-for="item in data">
 						<view class="datenumber">{{item.datenumber}}</view>
 						<view class="date">{{item.date}}</view>
 						<view class="Content">
-							<view class="item" v-for="it in item.Number">{{it}}</view>
+							<view class="item" v-for="it in item.Number" :class="screen.indexOf(it)>=0 || screen.length==0?typeclass(it):'wu'">{{typetext(it)}}</view>
 						</view>
 					</view>
 				</view>
@@ -63,52 +64,90 @@
 	export default {
 		data() {
 			return {
-				screen:[],
+				screen: [],
+				type: 1,
 				PageCur: 'movements',
 				data: [{
 					datenumber: '9301073',
 					date: '17:53',
 					Number: [5, 0, 8, 5, 2]
-				},{
+				}, {
 					datenumber: '9301073',
 					date: '17:53',
 					Number: [5, 0, 8, 5, 2]
-				},{
+				}, {
 					datenumber: '9301073',
 					date: '17:53',
 					Number: [5, 0, 8, 5, 2]
-				},{
+				}, {
 					datenumber: '9301073',
 					date: '17:53',
 					Number: [5, 0, 8, 5, 2]
-				},{
+				}, {
 					datenumber: '9301073',
 					date: '17:53',
 					Number: [5, 0, 8, 5, 2]
-				},{
+				}, {
 					datenumber: '9301073',
 					date: '17:53',
 					Number: [5, 0, 8, 5, 2]
-				},{
+				}, {
 					datenumber: '9301073',
 					date: '17:53',
 					Number: [5, 0, 8, 5, 2]
-				},{
+				}, {
 					datenumber: '9301073',
 					date: '17:53',
 					Number: [5, 0, 8, 5, 2]
-				},{
+				}, {
 					datenumber: '9301073',
 					date: '17:53',
 					Number: [5, 0, 8, 5, 2]
-				},{
+				}, {
 					datenumber: '9301073',
 					date: '17:53',
 					Number: [5, 0, 8, 5, 2]
 				}]
 			}
 		},
+		computed: {
+
+		},
+		watch: {
+			screen() {
+				console.log(this.screen)
+			}
+		},
 		methods: {
+			typetext(it){
+				var type = this.type
+				var str = type==1?it:type==2?(it%2==1?'单':'双'):(it>=5?'大':'小')
+				return str
+			},
+			typeclass(it){
+				var type = this.type
+				var str = type==1?'number':type==2?(it%2==1?'dan':'shuang'):(it>=5?'dan':'shuang')
+				return str
+			},
+			moduleclick(arr, claass) {
+				var s = this.screen
+				// 判断是否存在数组。
+				if (arr.every((item, index) => s.indexOf(item) >= 0)) {
+					if (!claass) {
+						for (let k in arr) {
+							s.splice(s.indexOf(arr[k]), 1)
+						}
+					}
+					return true
+				} else {
+					if (!claass) {
+						for (let k in arr) {
+							s.push(arr[k])
+						}
+					}
+					return false
+				}
+			},
 			NavChange: function(e) {
 				let PageCur = e.currentTarget.dataset.cur
 
@@ -170,10 +209,17 @@
 					width: 30px;
 					display: inline-block;
 					height: 30px;
-					background: #eee;
 					margin: 0 5px;
 					text-align: center;
 					line-height: 30px;
+				}
+
+				.you {
+					background: #39B54A;
+				}
+
+				.wu {
+					background: #eee;
 				}
 			}
 
@@ -187,6 +233,14 @@
 					line-height: 30px;
 					border-radius: 2px;
 					display: inline-block;
+				}
+
+				.you {
+					background: #39B54A;
+				}
+
+				.wu {
+					background: #eee;
 				}
 
 				.clear {
@@ -221,6 +275,16 @@
 					text-align: center;
 					height: 30px;
 					line-height: 30px;
+
+					>span {
+						font-weight: bold;
+					}
+
+					>.you {
+						color: #39b54a;
+						border-bottom: 2px solid #39b54a;
+						padding: 15px 10px;
+					}
 				}
 
 				.date {
@@ -258,9 +322,22 @@
 							width: 25px;
 							height: 25px;
 							border-radius: 50%;
-							background: #39B54A;
 							color: #fff;
 							line-height: 25px;
+						}
+
+						.number{
+							background: #39B54A;
+						}
+						.dan{
+							background: red;
+						}
+						.shuang{
+							background: #aaa;
+						}
+
+						.wu {
+							background: #eee;
 						}
 					}
 				}
