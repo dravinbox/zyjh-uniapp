@@ -73,14 +73,8 @@
 
 		</scroll-view>
 
-		<view class="footer" style="position: fixed;
-    bottom: 0;
-    background: #fff;
-    width: 100%;">
-			<view class="card" style="background: #a0a0a0;
-    color: #fff;
-    line-height: 22px;
-    font-size: 12px;">
+		<view class="footer" style="position: fixed;bottom: 0;background: #fff;width: 100%;">
+			<view class="card" style="background: #a0a0a0;color: #fff;padding-left: 10px;line-height: 22px;font-size: 12px;">
 				<view>已完成16个周期，正确率100.0%，错误0个。</view>
 				<view>已完成16个周期，正确率100.0%，错误0个。</view>
 			</view>
