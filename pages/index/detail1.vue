@@ -89,8 +89,8 @@
 					<textarea value="1,2,5,6,7" placeholder="" style="border-radius: 3px;padding: 5px;border:1px solid #ccc;width: 100%;height: 100%;" />
 					</view>
 				<view class="flex buttons" style="width:80px;flex-wrap: wrap;align-items: center;padding: 10px;">
-					<button style="width: 100%;height: 30px;line-height: 30px;">5组</button>
-					<button type="primary" style="width: 100%;height: 30px;line-height: 30px;">复制</button>
+					<button style="width: 100%;height: 30px;line-height: 30px;font-size: 12px;">5组</button>
+					<button type="primary" style="width: 100%;height: 30px;font-size: 12px;line-height: 30px;">复制</button>
 				</view>
 			</view>
 		</view>
