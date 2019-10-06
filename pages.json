@@ -10,6 +10,10 @@
             "path" : "pages/index/detail",
             "style" : {}
         }
+	    ,{
+            "path" : "pages/index/detail1",
+            "style" : {}
+        }
         ,{
             "path" : "pages/movement/movement",
             "style" : {}
