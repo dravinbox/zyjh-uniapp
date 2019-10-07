@@ -1,6 +1,6 @@
 <template>
 	<view id="movementDetail">
-		<view id="title">时时彩</view>
+		<view id="title"> <view class="return" @click="pageherf('/pages/movement/movement')"></view>时时彩</view>
 		<view id="main">
 			<view class="screen">
 				<scroll-view scroll-x scroll-y="false" class="bg-white nav cate-bar">
@@ -119,6 +119,9 @@
 			}
 		},
 		methods: {
+			pageherf(url){
+				uni.navigateTo({url: url});
+			},
 			typetext(it){
 				var type = this.type
 				var str = type==1?it:type==2?(it%2==1?'单':'双'):(it>=5?'大':'小')
@@ -187,6 +190,17 @@
 			font-size: 17px;
 			background: #f4f4f4;
 			height: 50px;
+			position: relative;
+			.return{
+				position: absolute;
+				left: 17px;
+				width: 16px;
+				height: 16px;
+				top: 17px;
+				transform: rotateZ(-45deg);
+				border-top: 2px solid #777;
+				border-left: 2px solid #777;
+			}
 		}
 
 		#main {

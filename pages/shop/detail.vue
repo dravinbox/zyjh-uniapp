@@ -1,6 +1,8 @@
 <template>
 	<view id="movementDetail">
-		<view id="title">时时彩</view>
+		<view id="title">
+			<view class="return" @click="pageherf('/pages/shop/shop')"></view>时时彩
+		</view>
 		<view id="main">
 			<view class="screen">
 				<scroll-view scroll-x scroll-y="false" class="bg-white nav cate-bar">
@@ -15,6 +17,13 @@
 				</scroll-view>
 			</view>
 			<view class="contents">
+				<view class="tiaoxings">
+					<view class="tiaoxing" v-for="(item,index) in data">
+						<view style="padding:0 5px;">{{index}}</view>
+						<view :style="'flex:'+item.tiao/big+' 0 0%;background:'+item.color"></view>
+						<view style="padding:0 5px;">{{item.tiao}}次</view>
+					</view>
+				</view>
 				<view class="table">
 					<view class="header">第一位</view>
 					<view class="body">
@@ -67,8 +76,40 @@
 		data() {
 			return {
 				screen: [],
+				data: [{
+					tiao: 0,
+					color: 'yellow'
+				}, {
+					tiao: 1,
+					color: '#5d9df4'
+				}, {
+					tiao: 2,
+					color: 'rgb(3,144,218)'
+				}, {
+					tiao: 3,
+					color: 'rgb(72,72,72)'
+				}, {
+					tiao: 4,
+					color: 'rgb(253,118,0)'
+				}, {
+					tiao: 5,
+					color: 'rgb(79,51,246)'
+				}, {
+					tiao: 6,
+					color: 'rgb(191,191,191)'
+				}, {
+					tiao: 7,
+					color: 'rgb(252,40,2)'
+				}, {
+					tiao: 8,
+					color: 'rgb(121,10,0)'
+				}, {
+					tiao: 9,
+					color: 'rgb(3,191,0)'
+				}],
+				big: 9,
 				wei: 0,
-				qishu:0,
+				qishu: 0,
 				type: 1,
 				PageCur: 'shop',
 			}
@@ -82,6 +123,11 @@
 			}
 		},
 		methods: {
+			pageherf(url) {
+				uni.navigateTo({
+					url: url
+				});
+			},
 			typetext(it) {
 				var type = this.type
 				var str = type == 1 ? it : type == 2 ? (it % 2 == 1 ? '单' : '双') : (it >= 5 ? '大' : '小')
@@ -150,6 +196,18 @@
 			font-size: 17px;
 			background: #f4f4f4;
 			height: 50px;
+			position: relative;
+
+			.return {
+				position: absolute;
+				left: 17px;
+				width: 16px;
+				height: 16px;
+				top: 17px;
+				transform: rotateZ(-45deg);
+				border-top: 2px solid #777;
+				border-left: 2px solid #777;
+			}
 		}
 
 		#main {
@@ -180,7 +238,8 @@
 					line-height: 30px;
 					color: #555;
 				}
-				.you{
+
+				.you {
 					background: #2ad0ea;
 					color: #fff;
 				}
@@ -203,9 +262,22 @@
 		}
 
 		.contents {
-			    height: calc(100% - 101px);
-				margin-top: 10px;
-					background: #fff;
+			height: calc(100% - 101px);
+			margin-top: 10px;
+			background: #fff;
+			
+			.tiaoxings{
+				.tiaoxing{
+					margin: 6px 0;
+					display: flex;
+				    height: 20px;
+				    line-height: 20px;
+				    width: 70%;
+					uni-view{
+						height: 100%;
+					}
+				}
+			}
 			.table {
 
 				.header {
@@ -230,19 +302,20 @@
 							padding-left: 10px;
 						}
 					}
+
 					>.one {
 						flex: 0 0 80px;
 						text-align: right;
 
 						.row {
-							border-left: none!important;
+							border-left: none !important;
 							padding-right: 10px;
 							padding-left: 0px !important;
 						}
 					}
 				}
-				
-				.footer{
+
+				.footer {
 					background: #f4f4f4;
 					padding: 10px;
 					line-height: 30px;

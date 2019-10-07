@@ -11,22 +11,49 @@
 						<view>
 							玩法：
 						</view>
-						<view class="bg-gray padding-xs margin-xs radius text-sm" @click="showModal" data-target="RadioModal">定胆个位<text
-							 class="cuIcon-unfold"></text></view>
+						<view class="bg-gray padding-xs margin-xs radius text-sm Drop-down-Wrapper" @click="select1 = !select1" data-target="RadioModal">
+							定胆个位
+							<text class="cuIcon-unfold"></text>
+
+							<view class="Drop-down" v-show="select1">
+								<li class="li">定位个胆</li>
+								<li class="li">定位个胆</li>
+								<li class="li">定位个胆</li>
+								<li class="li">定位个胆</li>
+								<li class="li">定位个胆</li>
+							</view>
+						</view>
 					</view>
 					<view class="flex justify-start align-center">
 						<view>
 							码数：
 						</view>
-						<view class="bg-gray padding-xs margin-xs radius text-sm" @click="showModal" data-target="RadioModal">5<text
-							 class="cuIcon-unfold"></text></view>
+						<view class="bg-gray padding-xs margin-xs radius text-sm Drop-down-Wrapper" @click="select2 = !select2" data-target="RadioModal">5<text
+							 class="cuIcon-unfold"></text>
+							 <view class="Drop-down" v-show="select2">
+							 	<li class="li">码数</li>
+							 	<li class="li">码数</li>
+							 	<li class="li">码数</li>
+							 	<li class="li">码数</li>
+							 	<li class="li">码数</li>
+							 </view>
+							</view>
 					</view>
 					<view class="flex justify-start align-center">
 						<view>
 							期数：
 						</view>
-						<view class="bg-gray padding-xs margin-xs radius text-sm" @click="showModal" data-target="RadioModal">3<text
-							 class="cuIcon-unfold"></text></view>
+						<view class="bg-gray padding-xs margin-xs radius text-sm Drop-down-Wrapper" @click="select3 = !select3" data-target="RadioModal">3<text
+							 class="cuIcon-unfold"></text>
+							 
+							 <view class="Drop-down" v-show="select3">
+							 	<li class="li">5</li>
+							 	<li class="li">5</li>
+							 	<li class="li">5</li>
+							 	<li class="li">5</li>
+							 	<li class="li">5</li>
+							 </view>
+							 </view>
 					</view>
 				</view>
 			</view>
@@ -101,6 +128,9 @@
 		data() {
 			return {
 				ItemList: [],
+				select1:false,
+				select2:false,
+				select3:false,
 				scrollTop: 0,
 				tableList: [{
 					'planName': '001-003',
@@ -171,12 +201,15 @@
 			}
 		},
 		methods: {
-
+			toggleEl(e){
+				this.select1 = !this.select1;
+				console.log(e)
+			}
 		}
 	}
 </script>
 
-<style>
+<style lang="scss">
 	.head-menu {
 		/* position: fixed; */
 		width: 100%;
@@ -187,5 +220,25 @@
 		/* position: absolute; */
 		/* top: 330rpx; */
 
+	}
+	.Drop-down-Wrapper{
+		position: relative;
+	}
+	.Drop-down{
+		// display: none;
+		position: absolute;
+		z-index: 102;
+		background: #fff;
+		white-space: nowrap;
+		left: -5px;
+		margin-top: 14px;
+		box-shadow: 0px 3px 9px 0px #555;
+		.li {
+			    height: 20px;
+			    padding: 10px 20px;
+			    border-bottom: 1px solid #ccc;
+			    list-style: none;
+			    line-height: 20px;
+		}
 	}
 </style>
