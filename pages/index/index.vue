@@ -1,10 +1,23 @@
 <template>
 	<view>
-		<cu-custom bgColor="bg-gray fix" >
-			<block slot="content">
+		<view id="title" class="flex justify-between align-center padding-sm">
+			
 				<image src="../../static/logo-zy.png" style="width: 30px;height: 30px;"></image>
+				<view class="flex justify-end text-df padding-sm">
+					<view class="cuIcon-favor" style="margin-right: 20rpx;">收藏</view>
+					<view class="cuIcon-newshot">教程</view>
+				</view>
+			
+		</view>
+	<!-- 	<cu-custom bgColor="bg-gray fix" >
+			<block slot="content">
+				<view class="flex justify-between">
+					<image src="../../static/logo-zy.png" style="width: 30px;height: 30px;"></image>
+					<image src="../../static/logo-zy.png" style="width: 30px;height: 30px;"></image>
+				</view>
+				
 			</block>
-		</cu-custom>	
+		</cu-custom>	 -->
 		
 		
 		<!-- 首页顶部菜单 -->
@@ -213,6 +226,17 @@
 </script>
 
 <style lang="scss">
+	#title {
+		text-align: center;
+		border-bottom: 1px solid #bfbfbf;
+		line-height: 50px;
+		font-size: 17px;
+		background: #f4f4f4;
+		height: 50px;
+		
+		
+		
+	}
 
 	.cate-bar{
 		top: 50px;

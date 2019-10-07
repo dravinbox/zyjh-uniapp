@@ -22,7 +22,7 @@
 				<view class="flex solid-bottom padding-xs justify-between bg-white"
 					v-for="(item,index) in tableList" :key="index"
 					>
-					<view class="bg-white padding-sm margin-xs radius">{{item.planName}}</view>
+					<view class="bg-white padding-sm margin-xs radius" @click="openPlanDetail">{{item.planName}}</view>
 					<view class="bg-white padding-sm margin-xs radius">{{item.codeNum}}</view>
 					<view class="bg-white padding-sm margin-xs radius">第{{item.nper}}期</view>
 					<view class="bg-white padding-sm margin-xs radius text-red">{{item.rate}}%</view>
@@ -87,6 +87,11 @@
 			}
 		},
 		methods: {
+			openPlanDetail(){
+				uni.navigateTo({
+					url: '/pages/index/detail1'
+				});
+			},
 			showModal(e) {
 				console.log(e)
 				this.modalName = e.currentTarget.dataset.target
