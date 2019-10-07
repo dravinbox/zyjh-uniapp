@@ -13,6 +13,12 @@
 	    ,{
             "path" : "pages/index/detail1",
             "style" : {}
+        } ,{
+            "path" : "pages/index/tutorial",
+            "style" : {}
+        } ,{
+            "path" : "pages/index/collection",
+            "style" : {}
         }
         ,{
             "path" : "pages/movement/movement",

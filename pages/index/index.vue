@@ -4,8 +4,8 @@
 			
 				<image src="../../static/logo-zy.png" style="width: 30px;height: 30px;"></image>
 				<view class="flex justify-end text-df padding-sm">
-					<view class="cuIcon-favor" style="margin-right: 20rpx;">收藏</view>
-					<view class="cuIcon-newshot">教程</view>
+					<view class="cuIcon-favor" style="margin-right: 20rpx;" @click="openCollection">收藏</view>
+					<view class="cuIcon-newshot" @click="openTutorial">教程</view>
 				</view>
 			
 		</view>
@@ -190,7 +190,16 @@
 
 		},
 		methods: {
-
+			openCollection(){
+				uni.navigateTo({
+					url: '/pages/index/collection'
+				});
+			},
+			openTutorial(){
+				uni.navigateTo({
+					url: '/pages/index/tutorial'
+				});
+			},
 			tabSelect(e) {
 				console.log(this.CustomBar)
 				this.TabCur = e.currentTarget.dataset.id;
