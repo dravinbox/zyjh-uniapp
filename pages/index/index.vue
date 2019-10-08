@@ -39,7 +39,7 @@
 		<!-- 首页列表 -->
 		<scroll-view scroll-y scroll-with-animation :scroll-top="scrollTop" class="item-list">
 			<IndexItem v-for="(item,index) in indexItemList" :key="index" :title="item.title" :radioList="item.radioList"
-			 :tableList="item.tableList"></IndexItem>
+			 :tableList="item.tableList" :show="item.show" :index="index" @sendChildData="sendChildData"></IndexItem>
 
 		</scroll-view>
 
@@ -79,6 +79,7 @@
 			return {
 				indexItemList: [{
 						'title': '定位胆',
+						show:false,
 						'radioList': [
 							'定胆个位',
 							'定胆十位',
@@ -120,6 +121,7 @@
 					},
 					{
 						'title': '定位胆',
+						show:false,
 						'radioList': [
 							'个位大小',
 							'十位大小',
@@ -190,6 +192,11 @@
 
 		},
 		methods: {
+			sendChildData(e){
+				console.log(',e',e)
+				console.log(this.indexItemList[0])
+				this.indexItemList[e.index].show = e.show
+			},
 			openCollection(){
 				uni.navigateTo({
 					url: '/pages/index/collection'

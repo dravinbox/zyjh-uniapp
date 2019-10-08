@@ -14,7 +14,7 @@
 						<view class="bg-gray padding-xs margin-xs radius text-sm Drop-down-Wrapper" @click="select1 = !select1" data-target="RadioModal">
 							定胆个位
 							<text class="cuIcon-unfold"></text>
-
+							<view class="mask" v-show="select1" @click.stop="select1 = !select1"></view>
 							<view class="Drop-down" v-show="select1">
 								<li class="li">定位个胆</li>
 								<li class="li">定位个胆</li>
@@ -30,6 +30,7 @@
 						</view>
 						<view class="bg-gray padding-xs margin-xs radius text-sm Drop-down-Wrapper" @click="select2 = !select2" data-target="RadioModal">5<text
 							 class="cuIcon-unfold"></text>
+							<view class="mask" v-show="select2" @click.stop="select2 = !select2"></view>
 							 <view class="Drop-down" v-show="select2">
 							 	<li class="li">码数</li>
 							 	<li class="li">码数</li>
@@ -46,6 +47,7 @@
 						<view class="bg-gray padding-xs margin-xs radius text-sm Drop-down-Wrapper" @click="select3 = !select3" data-target="RadioModal">3<text
 							 class="cuIcon-unfold"></text>
 							 
+							 <view class="mask" v-show="select3" @click.stop="select3 = !select3"></view>
 							 <view class="Drop-down" v-show="select3">
 							 	<li class="li">5</li>
 							 	<li class="li">5</li>
@@ -223,6 +225,16 @@
 	}
 	.Drop-down-Wrapper{
 		position: relative;
+		.mask {
+			position: fixed;
+			background: red;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			z-index: 9999;
+			opacity: 0;
+		}
 	}
 	.Drop-down{
 		// display: none;
