@@ -1,13 +1,15 @@
 <template>
-	<view style="height: calc(100%">
-		<me v-show="pagecur==pagevar.me" @pagechage="pagechage"></me>
-		<index v-show="pagecur==pagevar.index" @pagechage="pagechage"></index>
-		<movement v-show="pagecur==pagevar.movement" @pagechage="pagechage"></movement>
-		<shop v-show="pagecur==pagevar.shop" @pagechage="pagechage"></shop>
-		<movementDetail v-show="pagecur==pagevar.movementDetail" @pagechage="pagechage"></movementDetail>
-		<shopDetail v-show="pagecur==pagevar.shopDetail" @pagechage="pagechage"></shopDetail>
-		<me1 v-show="pagecur==pagevar.me1" @pagechage="pagechage"></me1>
-		<me2 v-show="pagecur==pagevar.me2" @pagechage="pagechage"></me2>
+	<view style="height: 100%">
+		<view style="height: calc(100% - 50px); width: 100%;overflow: auto;">
+			<me v-if="pagecur==pagevar.me" @pagechage="pagechage"></me>
+			<index v-if="pagecur==pagevar.index" @pagechage="pagechage"></index>
+			<movement v-if="pagecur==pagevar.movement" @pagechage="pagechage"></movement>
+			<shop v-if="pagecur==pagevar.shop" @pagechage="pagechage"></shop>
+			<movementDetail v-if="pagecur==pagevar.movementDetail" @pagechage="pagechage"></movementDetail>
+			<shopDetail v-if="pagecur==pagevar.shopDetail" @pagechage="pagechage"></shopDetail>
+			<me1 v-if="pagecur==pagevar.me1" @pagechage="pagechage"></me1>
+			<me2 v-if="pagecur==pagevar.me2" @pagechage="pagechage"></me2>
+		</view>
 		<view class="cu-bar tabbar bg-white shadow foot">
 			<view class="action" :class="pagetab==pagevar.index?'new-text-blue':'new-text-black'" @click="NavChange(pagevar.index)" data-cur="home">
 				<view :class="pagetab==pagevar.index?'cuIcon-homefill':'cuIcon-home'"></view>

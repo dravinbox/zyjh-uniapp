@@ -1,5 +1,5 @@
 <template>
-	<view>
+	<view style="height: 100%">
 		<view class="title_id flex justify-between align-center padding-sm">
 			
 				<image src="../../../static/logo-zy.png" style="width: 30px;height: 30px;"></image>
@@ -21,7 +21,7 @@
 		
 		
 		<!-- 首页顶部菜单 -->
-		<scroll-view scroll-x scroll-y="false" class="bg-white nav fixed cate-bar">
+		<scroll-view scroll-x scroll-y="false" class="bg-white nav cate-bar">
 			<view class="flex text-center solid-bottom">
 				<view class="cu-item flex-sub" :class="index==TabCur?'text-orange cur':''" v-for="(item,index) in oneCategory" :key="index"
 				 @tap="tabSelect" :data-id="index">
@@ -256,8 +256,10 @@
 		
 	}
 	.item-list {
-		position: absolute;
-		top: 280rpx;
-		bottom: 90rpx;
+		// position: absolute;
+		// top: 280rpx;
+		// bottom: 90rpx;
+		width: 100%;
+		height: calc(100% - 140px);
 	}
 </style>
