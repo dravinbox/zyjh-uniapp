@@ -11,7 +11,7 @@
 		<view class="cu-bar tabbar bg-white shadow foot">
 			<view class="action" :class="pagetab==pagevar.index?'new-text-blue':'new-text-black'" @click="NavChange(pagevar.index)" data-cur="home">
 				<view :class="pagetab==pagevar.index?'cuIcon-homefill':'cuIcon-home'"></view>
-				<view>首页1111</view>
+				<view>首页</view>
 			</view>
 			<view class="action " :class="pagetab==pagevar.movement?'new-text-blue':'new-text-black'" @click="NavChange(pagevar.movement)" data-cur="movements">
 				<view :class="pagetab==pagevar.movement?'cuIcon-rank':'cuIcon-rankfill'"></view>

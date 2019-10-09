@@ -2,7 +2,7 @@
 	<view>
 		<view id="title" class="flex justify-between align-center padding-sm">
 			
-				<image src="../../static/logo-zy.png" style="width: 30px;height: 30px;"></image>
+				<image src="../../../static/logo-zy.png" style="width: 30px;height: 30px;"></image>
 				<view class="flex justify-end text-df padding-sm">
 					<view class="cuIcon-favor" style="margin-right: 20rpx;" @click="openCollection">收藏</view>
 					<view class="cuIcon-newshot" @click="openTutorial">教程</view>
