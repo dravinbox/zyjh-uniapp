@@ -49,7 +49,7 @@
 		</view>
 
 		<!-- 底部 -->
-		<view class="cu-bar tabbar bg-white shadow foot">
+<!-- 		<view class="cu-bar tabbar bg-white shadow foot">
 			<view class="action" :class="PageCur=='home'?'new-text-blue':'new-text-black'" @click="NavChange" data-cur="home">
 				<view :class="PageCur=='home'?'cuIcon-homefill':'cuIcon-home'"></view>
 				<view>首页</view>
@@ -67,7 +67,7 @@
 				</view>
 				<view>我的</view>
 			</view>
-		</view>
+		</view> -->
 	</view>
 </template>
 
@@ -124,9 +124,7 @@
 		},
 		methods: {
 			pageherf(url) {
-				uni.navigateTo({
-					url: url
-				});
+				this.$emit('pagechage',{pagecur:3,pagetab:2})
 			},
 			typetext(it) {
 				var type = this.type

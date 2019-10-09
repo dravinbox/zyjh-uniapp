@@ -1,21 +1,21 @@
 <template>
 	<view id="me">
 		<view id="title">
-			<navigator v-for="(item,index) in ['开奖提醒','计划设置','联系我们']" :class="pages==index?'you':''" :url="'/pages/me/me'+(index==0?'':index)">
+			<view v-for="(item,index) in ['开奖提醒','计划设置','联系我们']" :class="pages==index?'you':''" @click="pageherf(index)">
 				{{item}}
-			</navigator>
+			</view>
 		</view>
 		<view id="main">
 			<view class="screen">
 				<view v-for="(item,index) in ['时时彩','PK10','11选5','快三','快乐十分','更多']" @click="clickscreen=index" class="item" :class="clickscreen==index?'you':''"><span>{{item}}</span></view>
 			</view>
 			<view class="list">
-				<li v-for="item in 20">重庆时时彩 <label>
+				<li v-for="(item,index) in 20">重庆时时彩 {{index}}<label>
 						<checkbox value="cb" checked="true" style="transform:scale(0.7);float:right" /></label></li>
 			</view>
 		</view>
 		<!-- 底部 -->
-		<view class="cu-bar tabbar bg-white shadow foot">
+<!-- 		<view class="cu-bar tabbar bg-white shadow foot">
 			<view class="action" :class="PageCur=='home'?'new-text-blue':'new-text-black'" @click="NavChange" data-cur="home">
 				<view :class="PageCur=='home'?'cuIcon-homefill':'cuIcon-home'"></view>
 				<view>首页</view>
@@ -33,7 +33,7 @@
 				</view>
 				<view>我的</view>
 			</view>
-		</view>
+		</view> -->
 	</view>
 </template>
 
@@ -58,6 +58,15 @@
 			}
 		},
 		methods: {
+			pageherf(index){
+				if(index==0){
+					this.$emit('pagechage',{pagecur:3,pagetab:3})
+				}else if(index == 1){
+					this.$emit('pagechage',{pagecur:6,pagetab:3})
+				}else if(index == 2){
+					this.$emit('pagechage',{pagecur:7,pagetab:3})
+				}
+			},
 			NavChange: function(e) {
 				let PageCur = e.currentTarget.dataset.cur
 
@@ -111,6 +120,7 @@
 			height: calc(100% - 50px);
 			background: #fff;
 			padding: 10px;
+			overflow: auto;
 
 			.screen {
 				height: 60px;
@@ -138,7 +148,7 @@
 			}
 
 			.list {
-				height: calc(100% - 110px);
+				height: calc(100% - 60px);
 				overflow: auto;
 
 				>li {

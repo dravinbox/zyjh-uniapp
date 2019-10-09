@@ -12,7 +12,7 @@
 			</div>
 		</view>
 		<!-- 底部 -->
-		<view class="cu-bar tabbar bg-white shadow foot">
+<!-- 		<view class="cu-bar tabbar bg-white shadow foot">
 			<view class="action" :class="PageCur=='home'?'new-text-blue':'new-text-black'" @click="NavChange" data-cur="home">
 				<view :class="PageCur=='home'?'cuIcon-homefill':'cuIcon-home'"></view>
 				<view>首页</view>
@@ -30,7 +30,7 @@
 				</view>
 				<view>我的</view>
 			</view>
-		</view>
+		</view> -->
 	</view>
 </template>
 
@@ -56,9 +56,7 @@
 		},
 		methods: {
 			pagee: function(e) {
-				uni.navigateTo({
-					url: '/pages/movement/detail'
-				});
+				this.$emit('pagechage',{pagecur:4,pagetab:1})
 			},
 			NavChange: function(e) {
 				let PageCur = e.currentTarget.dataset.cur

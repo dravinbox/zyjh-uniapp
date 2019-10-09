@@ -1,9 +1,9 @@
 <template>
 	<view id="me">
 		<view id="title">
-			<navigator v-for="(item,index) in ['开奖提醒','计划设置','联系我们']" :class="pages==index?'you':''" :url="'/pages/me/me'+(index==0?'':index)">
+			<view v-for="(item,index) in ['开奖提醒','计划设置','联系我们']" :class="pages==index?'you':''" @click="pageherf(index)">
 				{{item}}
-			</navigator>
+			</view>
 		</view>
 		<view id="main">
 			<view id="switch">
@@ -25,7 +25,7 @@
 			</view>
 		</view>
 		<!-- 底部 -->
-		<view class="cu-bar tabbar bg-white shadow foot">
+<!-- 		<view class="cu-bar tabbar bg-white shadow foot">
 			<view class="action" :class="PageCur=='home'?'new-text-blue':'new-text-black'" @click="NavChange" data-cur="home">
 				<view :class="PageCur=='home'?'cuIcon-homefill':'cuIcon-home'"></view>
 				<view>首页</view>
@@ -43,7 +43,7 @@
 				</view>
 				<view>我的</view>
 			</view>
-		</view>
+		</view> -->
 	</view>
 </template>
 
@@ -68,6 +68,15 @@
 			}
 		},
 		methods: {
+			pageherf(index){
+				if(index==0){
+					this.$emit('pagechage',{pagecur:3,pagetab:3})
+				}else if(index == 1){
+					this.$emit('pagechage',{pagecur:6,pagetab:3})
+				}else if(index == 2){
+					this.$emit('pagechage',{pagecur:7,pagetab:3})
+				}
+			},
 			NavChange: function(e) {
 				let PageCur = e.currentTarget.dataset.cur
 
@@ -121,6 +130,7 @@
 			height: calc(100% - 50px);
 			background: #fff;
 			padding: 10px;
+			overflow: auto;
 
 			#switch {
 				height: 40px;

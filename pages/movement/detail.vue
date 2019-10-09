@@ -1,6 +1,6 @@
 <template>
 	<view id="movementDetail">
-		<view id="title"> <view class="return" @click="pageherf('/pages/movement/movement')"></view>时时彩</view>
+		<view id="title"> <view class="return" @click="pageherf"></view>时时彩</view>
 		<view id="main">
 			<view class="screen">
 				<scroll-view scroll-x scroll-y="false" class="bg-white nav cate-bar">
@@ -38,7 +38,7 @@
 		</view>
 
 		<!-- 底部 -->
-		<view class="cu-bar tabbar bg-white shadow foot">
+<!-- 		<view class="cu-bar tabbar bg-white shadow foot">
 			<view class="action" :class="PageCur=='home'?'new-text-blue':'new-text-black'" @click="NavChange" data-cur="home">
 				<view :class="PageCur=='home'?'cuIcon-homefill':'cuIcon-home'"></view>
 				<view>首页</view>
@@ -56,7 +56,7 @@
 				</view>
 				<view>我的</view>
 			</view>
-		</view>
+		</view> -->
 	</view>
 </template>
 
@@ -120,7 +120,7 @@
 		},
 		methods: {
 			pageherf(url){
-				uni.navigateTo({url: url});
+				this.$emit('pagechage',{pagecur:1,pagetab:1})
 			},
 			typetext(it){
 				var type = this.type
