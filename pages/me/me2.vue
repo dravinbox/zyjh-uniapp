@@ -1,12 +1,12 @@
 <template>
-	<view id="me">
-		<view id="title">
+	<view id="me" class="me_id">
+		<view id="title" class="title_id">
 			<view v-for="(item,index) in ['开奖提醒','计划设置','联系我们']" :class="pages==index?'you':''" @click="pageherf(index)">
 				{{item}}
 			</view>
 		</view>
-		<view id="main">
-			<view id="switch">
+		<view id="main" class="main_id">
+			<view id="switch" class="switch_id">
 				<view class="">
 					请复制下方网址并保存，当app不可用是，便于下载最新版本。
 				</view>
@@ -27,11 +27,11 @@
 				<view class="lianxiwomen">
 					联系我们：
 					<view class="cart">
-						<view class="view">微信：<span>暂不公开</span> </view>
-						<view class="view">公众号：<span>暂不公开</span> </view>
-						<view class="view">Q Q：<span>暂不公开</span> </view>
-						<view class="view">电话：<span>暂不公开</span> </view>
-						<view>邮箱：<span>暂不公开</span> </view>
+						<view class="view">微信：<span class="span">暂不公开</span> </view>
+						<view class="view">公众号：<span class="span">暂不公开</span> </view>
+						<view class="view">Q Q：<span class="span">暂不公开</span> </view>
+						<view class="view">电话：<span class="span">暂不公开</span> </view>
+						<view>邮箱：<span class="span">暂不公开</span> </view>
 					</view>
 				</view>
 			</view>
@@ -117,10 +117,10 @@
 </script>
 
 <style lang="scss">
-	#me {
+	.me_id {
 		height: 100%;
 
-		#title {
+		.title_id {
 			text-align: center;
 			border-bottom: 1px solid #bfbfbf;
 			line-height: 50px;
@@ -138,13 +138,13 @@
 			}
 		}
 
-		#main {
+		.main_id {
 			height: calc(100% - 50px);
 			background: #fff;
 			// padding: 10px;
 			overflow: auto;
 
-			#switch {
+			.switch_id {
 				// height: 40px;
 				    height: 50px;
 				    padding: 5px;
@@ -205,13 +205,7 @@
 						padding: 20px;
 						.view{
 							width: 50%;
-							span{
-								color: green;
-								text-decoration: underline;
-							}
-						}
-						view{
-							span{
+							.span{
 								color: green;
 								text-decoration: underline;
 							}

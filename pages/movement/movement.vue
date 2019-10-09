@@ -1,7 +1,7 @@
 <template>
-	<view id="movement">
-		<view id="title">走势</view>
-		<view id="main">
+	<view id="movement" class="movement_id">
+		<view id="title" class="title_id">走势</view>
+		<view id="main" class="main_id">
 			<div class="Wrapper" v-for="(items,ind) in datazzz">
 				<p class="title">{{items.title}}</p>
 				<view class="items">
@@ -86,10 +86,10 @@
 </script>
 
 <style lang="scss">
-	#movement {
+	.movement_id {
 		height: 100%;
 
-		#title {
+		.title_id {
 			text-align: center;
 			border-bottom: 1px solid #bfbfbf;
 			line-height: 50px;
@@ -98,7 +98,7 @@
 			height: 50px;
 		}
 
-		#main {
+		.main_id {
 			height: calc(100% - 50px);
 			padding: 0 10px;
 			overflow: auto;

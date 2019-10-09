@@ -1,7 +1,7 @@
 <template>
-	<view id="movementDetail">
-		<view id="title"> <view class="return" @click="pageherf"></view>时时彩</view>
-		<view id="main">
+	<view id="movementDetail" class="movementDetail_id">
+		<view id="title" class="title_id"> <view class="return" @click="pageherf"></view>时时彩</view>
+		<view id="main" class="main_id">
 			<view class="screen">
 				<scroll-view scroll-x scroll-y="false" class="bg-white nav cate-bar">
 					<view class="number">
@@ -21,9 +21,9 @@
 				<view class="title">
 					<view class="item datenumber">期数</view>
 					<view class="item date">日期</view>
-					<view class="item Number" @click="type=1"><span :class="type==1?'you':''">号码</span></view>
-					<view class="item SingleDouble" @click="type=2"><span :class="type==2?'you':''">单双</span></view>
-					<view class="item Size" @click="type=3"><span :class="type==3?'you':''">大小</span></view>
+					<view class="item Number" @click="type=1"><span :class="type==1?'you':''" class="span">号码</span></view>
+					<view class="item SingleDouble" @click="type=2"><span :class="type==2?'you':''" class="span">单双</span></view>
+					<view class="item Size" @click="type=3"><span :class="type==3?'you':''" class="span">大小</span></view>
 				</view>
 				<view class="content">
 					<view class="DataWrapper" v-for="item in data">
@@ -180,10 +180,10 @@
 
 
 <style lang="scss">
-	#movementDetail {
+	.movementDetail_id {
 		height: 100%;
 
-		#title {
+		.title_id {
 			text-align: center;
 			border-bottom: 1px solid #bfbfbf;
 			line-height: 50px;
@@ -203,7 +203,7 @@
 			}
 		}
 
-		#main {
+		.main_id {
 			height: calc(100% - 50px);
 			// padding: 0 10px;
 			overflow: auto;
@@ -213,7 +213,7 @@
 
 
 <style lang="scss">
-	#main {
+	.main_id {
 		.screen {
 			background: #fff;
 			padding: 20px 15px;
@@ -284,17 +284,17 @@
 				align-items: center;
 				justify-content: space-around;
 
-				>.item {
+				.item {
 					width: calc(100% / 5);
 					text-align: center;
 					height: 30px;
 					line-height: 30px;
 
-					>span {
+					.span {
 						font-weight: bold;
 					}
 
-					>.you {
+					.you {
 						color: #39b54a;
 						border-bottom: 2px solid #39b54a;
 						padding: 15px 10px;

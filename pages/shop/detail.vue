@@ -1,9 +1,9 @@
 <template>
-	<view id="movementDetail">
-		<view id="title">
+	<view id="movementDetail" class="movementDetail_id">
+		<view id="title" class="title_id">
 			<view class="return" @click="pageherf('/pages/shop/shop')"></view>时时彩
 		</view>
-		<view id="main">
+		<view id="main" class="main_id">
 			<view class="screen">
 				<scroll-view scroll-x scroll-y="false" class="bg-white nav cate-bar">
 					<view class="number">
@@ -184,10 +184,10 @@
 
 
 <style lang="scss">
-	#movementDetail {
+	.movementDetail_id {
 		height: 100%;
 
-		#title {
+		.title_id {
 			text-align: center;
 			border-bottom: 1px solid #bfbfbf;
 			line-height: 50px;
@@ -208,7 +208,7 @@
 			}
 		}
 
-		#main {
+		.main_id {
 			height: calc(100% - 50px);
 			// padding: 0 10px;
 			overflow: auto;
@@ -218,7 +218,7 @@
 
 
 <style lang="scss">
-	#main {
+	.main_id {
 		.screen {
 			// background: #fff;
 			// padding: 20px 15px;
@@ -301,7 +301,7 @@
 						}
 					}
 
-					>.one {
+					.one {
 						flex: 0 0 80px;
 						text-align: right;
 
