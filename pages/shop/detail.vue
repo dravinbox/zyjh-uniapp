@@ -211,6 +211,7 @@
 		.main_id {
 			height: calc(100% - 50px);
 			// padding: 0 10px;
+		padding-bottom: 50px;
 			overflow: auto;
 		}
 	}

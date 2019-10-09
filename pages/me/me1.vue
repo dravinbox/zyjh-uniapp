@@ -7,7 +7,7 @@
 		</view>
 		<view id="main" class="main_id">
 			<view class="screen">
-				<view v-for="(item,index) in ['时时彩','PK10','11选5','快三','快乐十分','更多']" @click="clickscreen=index" class="item" :class="clickscreen==index?'you':''"><span>{{item}}</span></view>
+				<view v-for="(item,index) in ['时时彩','PK10','11选5','快三','快乐十分','更多']" @click="changetab(index)" class="item" :class="clickscreen==index?'you':''"><span>{{item}}</span></view>
 			</view>
 			<view class="list">
 				<!-- <li v-for="(item,index) in 20">重庆时时彩 {{index}} -->
@@ -96,6 +96,9 @@
 			}
 		},
 		methods: {
+			changetab(index){
+				this.clickscreen=index
+			},
 			showModal(e) {
 				console.log(e)
 				this.modalName = e.currentTarget.dataset.target
@@ -172,6 +175,7 @@
 			padding: 10px;
 			overflow: auto;
 
+		padding-bottom: 50px;
 			.screen {
 				height: 60px;
 				display: flex;
@@ -180,6 +184,7 @@
 				border-bottom: 1px solid #ccc;
 
 				.item {
+					white-space: nowrap;
 					display: inline-block;
 					padding: 2px 10px;
 					border-right: 1px solid #ccc;

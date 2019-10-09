@@ -7,8 +7,8 @@
 		</view>
 		<view id="main" class="main_id">
 			<view id="switch" class="switch_id">
-				<view class="">
-					请复制下方网址并保存，当app不可用是，便于下载最新版本。
+				<view class="" style="white-space: nowrap;">
+					请复制下方网址并保存，当app不可用时，便于下载最新版本。
 				</view>
 				<view>最新下载地址：www.shucy.top <button type="primary" style="float: right;height: 20px;color: #fff;font-size: 12px;line-height: 20px;background: green;">复制</button></view>
 			</view>
@@ -143,6 +143,7 @@
 			background: #fff;
 			// padding: 10px;
 			overflow: auto;
+		padding-bottom: 50px;
 
 			.switch_id {
 				// height: 40px;

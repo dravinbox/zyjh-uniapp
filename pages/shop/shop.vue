@@ -102,6 +102,7 @@
 			height: calc(100% - 50px);
 			padding: 0 10px;
 			overflow: auto;
+		padding-bottom: 50px;
 
 			.Wrapper {
 				width: 100%;

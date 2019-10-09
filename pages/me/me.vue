@@ -20,7 +20,7 @@
 				</view>
 			</view>
 			<view class="screen">
-				<view v-for="(item,index) in ['时时彩','PK10','11选5','快三','快乐十分','更多']" @click="clickscreen=index" class="item" :class="clickscreen==index?'you':''"><span>{{item}}</span></view>
+				<view v-for="(item,index) in ['时时彩','PK10','11选5','快三','快乐十分','更多']" @click="changetab(index)" class="item" :class="clickscreen==index?'you':''"><span>{{item}}</span></view>
 			</view>
 			<view class="list">
 				<li v-for="item in checkboxS">重庆时时彩 <label>
@@ -93,6 +93,9 @@
 			}
 		},
 		methods: {
+			changetab(index){
+				this.clickscreen=index
+			},
 			pageherf(index){
 				if(index==0){
 					this.$emit('pagechage',{pagecur:3,pagetab:3})
@@ -155,6 +158,7 @@
 			height: calc(100% - 50px);
 			background: #fff;
 			padding: 10px;
+		padding-bottom: 50px;
 			overflow: auto;
 
 			.switch_id {
@@ -172,6 +176,7 @@
 				justify-content: space-between;
 
 				.item {
+					white-space: nowrap;
 					display: inline-block;
 					padding: 2px 10px;
 					border-right: 1px solid #ccc;

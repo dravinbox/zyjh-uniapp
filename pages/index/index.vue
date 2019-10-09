@@ -1,5 +1,5 @@
 <template>
-	<view style="height: 100%">
+	<view class="index_id">
 		<view class="title_id flex justify-between align-center padding-sm">
 			
 				<image src="../../../static/logo-zy.png" style="width: 30px;height: 30px;"></image>
@@ -242,6 +242,11 @@
 </script>
 
 <style lang="scss">
+	.index_id{
+		width: 100%;
+		height: 80%;
+		overflow: hidden;
+	}
 	.title_id {
 		text-align: center;
 		border-bottom: 1px solid #bfbfbf;
@@ -260,6 +265,7 @@
 		// top: 280rpx;
 		// bottom: 90rpx;
 		width: 100%;
-		height: calc(100% - 140px);
+		padding-bottom: 50px;
+		// height: calc(100% - 540rpx);
 	}
 </style>

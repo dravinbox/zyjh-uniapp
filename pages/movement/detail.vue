@@ -6,7 +6,7 @@
 				<scroll-view scroll-x scroll-y="false" class="bg-white nav cate-bar">
 					<view class="number">
 						<view class="item" v-for="(item,index) in 10" @click="screen.indexOf(item-1)>=0?screen.splice(screen.indexOf(item-1),1):screen.push(item-1)"
-						 :class="screen.indexOf(item-1)>=0?'you':'wu'">{{item-1}}</view>
+						>{{item}}</view>
 					</view>
 				</scroll-view>
 				<view class="click">
@@ -207,6 +207,7 @@
 			height: calc(100% - 50px);
 			// padding: 0 10px;
 			overflow: auto;
+		padding-bottom: 50px;
 		}
 	}
 </style>
@@ -217,6 +218,7 @@
 		.screen {
 			background: #fff;
 			padding: 20px 15px;
+			color: #222;
 
 			.number {
 				.item {
@@ -226,14 +228,16 @@
 					margin: 0 5px;
 					text-align: center;
 					line-height: 30px;
+					// background: red;
 				}
 
 				.you {
 					background: #39B54A;
+					color: #fff;
 				}
 
 				.wu {
-					background: #eee;
+					// background: #eee;
 				}
 			}
 
@@ -251,6 +255,7 @@
 
 				.you {
 					background: #39B54A;
+					color: #fff;
 				}
 
 				.wu {
