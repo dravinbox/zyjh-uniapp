@@ -1,17 +1,46 @@
 <template>
-	<view id="me">
-		<view id="title">
+	<view id="me" class="me_id">
+		<view id="title" class="title_id">
 			<view v-for="(item,index) in ['开奖提醒','计划设置','联系我们']" :class="pages==index?'you':''" @click="pageherf(index)">
 				{{item}}
 			</view>
 		</view>
-		<view id="main">
+		<view id="main" class="main_id">
 			<view class="screen">
 				<view v-for="(item,index) in ['时时彩','PK10','11选5','快三','快乐十分','更多']" @click="clickscreen=index" class="item" :class="clickscreen==index?'you':''"><span>{{item}}</span></view>
 			</view>
 			<view class="list">
-				<li v-for="(item,index) in 20">重庆时时彩 {{index}}<label>
-						<checkbox value="cb" checked="true" style="transform:scale(0.7);float:right" /></label></li>
+				<!-- <li v-for="(item,index) in 20">重庆时时彩 {{index}} -->
+				<uni-collapse @change="change">
+				    <uni-collapse-item title="标题文字" v-for="(item,index) in 20">
+				        <uni-list style="background: #f4f4f4;">
+							<view style="text-align: center;line-height: 30px;border-bottom: 1px solid #c8c7cc;" @tap="showModal" data-target="Modal" :data-index="index" :data-indexs="indexs" v-for="(items,indexs) in 3">标题文字{{items}}</view>
+				        </uni-list>
+				    </uni-collapse-item>
+				</uni-collapse>
+				
+				<view class="cu-modal" :class="modalName=='Modal'?'show':''">
+					<view class="cu-dialog">
+						<view class="cu-bar bg-white justify-end">
+							<view class="content">{{modalInit.title}}</view>
+							<view class="action" @tap="hideModal">
+								<text class="cuIcon-close text-red"></text>
+							</view>
+						</view>
+						<view class="padding-xl">
+							<view style="display: flex;height: 30px;line-height: 30px;margin: 8px 0;"><view style="padding: 0 5px;">码数:</view><input type="text" value="1" style="flex: 1;height: 30px;border:1px solid #ccc;text-align: left;padding-left: 10px;"></view>
+							<view style="display: flex;height: 30px;line-height: 30px;margin: 8px 0;"><view style="padding: 0 5px;">期数:</view><input type="text" value="3" style="flex: 1;height: 30px;border:1px solid #ccc;text-align: left;padding-left: 10px;"></view>
+							<view class="button" style="display: flex;justify-content: space-between;margin-top: 20px;">
+								<button type="primary" @tap="hideModal" style="height: 30px;line-height: 30px;font-size: 13px;">取消</button>
+								<button type="primary" style="height: 30px;line-height: 30px;font-size: 13px;">确定</button>
+							</view>
+						</view>
+					</view>
+				</view>
+<!-- 					<label>
+						<checkbox value="cb" checked="true" style="transform:scale(0.7);float:right" />
+					</label> -->
+				<!-- </li> -->
 			</view>
 		</view>
 		<!-- 底部 -->
@@ -38,10 +67,19 @@
 </template>
 
 <script>
+	import uniCollapse from "@/components/uni-collapse/uni-collapse.vue"
+	import uniCollapseItem from "@/components/uni-collapse-item/uni-collapse-item.vue"
+	import uniList from "@/components/uni-list/uni-list.vue"
+	import uniListItem from "@/components/uni-list-item/uni-list-item.vue"
 	export default {
+		components: {uniCollapse,uniCollapseItem,uniListItem,uniList},
 		data() {
 			return {
 				PageCur: 'me',
+				modalName: null,
+				modalInit:{
+					title:'model 标题',
+				},
 				pages:'1',
 				shadow: false,
 				clickscreen: '0',
@@ -58,6 +96,18 @@
 			}
 		},
 		methods: {
+			showModal(e) {
+				console.log(e)
+				this.modalName = e.currentTarget.dataset.target
+				this.modalInit.title = `第${parseInt(e.currentTarget.dataset.index)+1}条里面的第${parseInt(e.currentTarget.dataset.indexs)+1}条`
+				console.log(this.modalName)
+			},
+			hideModal(e) {
+				this.modalName = null
+			},
+			change(e){
+				console.log('change',e)
+			},
 			pageherf(index){
 				if(index==0){
 					this.$emit('pagechage',{pagecur:3,pagetab:3})
@@ -95,10 +145,10 @@
 </script>
 
 <style lang="scss">
-	#me {
+	.me_id {
 		height: 100%;
 
-		#title {
+		.title_id {
 			text-align: center;
 			border-bottom: 1px solid #bfbfbf;
 			line-height: 50px;
@@ -116,7 +166,7 @@
 			}
 		}
 
-		#main {
+		.main_id {
 			height: calc(100% - 50px);
 			background: #fff;
 			padding: 10px;

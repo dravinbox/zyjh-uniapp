@@ -124,7 +124,7 @@
 		},
 		methods: {
 			pageherf(url) {
-				this.$emit('pagechage',{pagecur:3,pagetab:2})
+				this.$emit('pagechage',{pagecur:2,pagetab:2})
 			},
 			typetext(it) {
 				var type = this.type

@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<view id="title" class="flex justify-between align-center padding-sm">
+		<view class="title_id flex justify-between align-center padding-sm">
 			
 				<image src="../../../static/logo-zy.png" style="width: 30px;height: 30px;"></image>
 				<view class="flex justify-end text-df padding-sm">
@@ -242,16 +242,13 @@
 </script>
 
 <style lang="scss">
-	#title {
+	.title_id {
 		text-align: center;
 		border-bottom: 1px solid #bfbfbf;
 		line-height: 50px;
 		font-size: 17px;
 		background: #f4f4f4;
 		height: 50px;
-		
-		
-		
 	}
 
 	.cate-bar{

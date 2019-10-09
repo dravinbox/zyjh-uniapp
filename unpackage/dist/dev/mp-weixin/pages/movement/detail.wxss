@@ -1,0 +1,232 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+#movementDetail {
+  height: 100%;
+}
+#movementDetail #title {
+    text-align: center;
+    border-bottom: 1px solid #bfbfbf;
+    line-height: 50px;
+    font-size: 17px;
+    background: #f4f4f4;
+    height: 50px;
+    position: relative;
+}
+#movementDetail #title .return {
+      position: absolute;
+      left: 17px;
+      width: 16px;
+      height: 16px;
+      top: 17px;
+      -webkit-transform: rotateZ(-45deg);
+          -ms-transform: rotate(-45deg);
+              transform: rotateZ(-45deg);
+      border-top: 2px solid #777;
+      border-left: 2px solid #777;
+}
+#movementDetail #main {
+    height: calc(100% - 50px);
+    overflow: auto;
+}
+
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+#main .screen {
+  background: #fff;
+  padding: 20px 15px;
+}
+#main .screen .number .item {
+    width: 30px;
+    display: inline-block;
+    height: 30px;
+    margin: 0 5px;
+    text-align: center;
+    line-height: 30px;
+}
+#main .screen .number .you {
+    background: #39B54A;
+}
+#main .screen .number .wu {
+    background: #eee;
+}
+#main .screen .click .item {
+    width: 40px;
+    height: 30px;
+    background: #eeeeee;
+    margin: 15px 5px 0px 5px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 2px;
+    display: inline-block;
+}
+#main .screen .click .you {
+    background: #39B54A;
+}
+#main .screen .click .wu {
+    background: #eee;
+}
+#main .screen .click .clear {
+    width: 70px;
+    height: 30px;
+    background: #fff;
+    margin: 15px 5px 0px 5px;
+    text-align: center;
+    line-height: 28px;
+    display: inline-block;
+    float: right;
+    border: 2px solid #ddd;
+}
+#main .contents {
+  overflow: auto;
+  height: calc(100% - 125px);
+  margin-top: 10px;
+  background: #fff;
+}
+#main .contents .title {
+    height: 50px;
+    border-bottom: 1px solid #ddd;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-justify-content: space-around;
+        -ms-flex-pack: distribute;
+            justify-content: space-around;
+}
+#main .contents .title > .item {
+      width: calc(100% / 5);
+      text-align: center;
+      height: 30px;
+      line-height: 30px;
+}
+#main .contents .title > .item > ._span {
+        font-weight: bold;
+}
+#main .contents .title > .item > .you {
+        color: #39b54a;
+        border-bottom: 2px solid #39b54a;
+        padding: 15px 10px;
+}
+#main .contents .title .date {
+      border-right: 1px solid #ddd;
+}
+#main .contents .content .DataWrapper {
+    height: 50px;
+    border-bottom: 1px solid #ddd;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-justify-content: space-around;
+        -ms-flex-pack: distribute;
+            justify-content: space-around;
+    -webkit-box-flex: 12;
+    -webkit-flex: 12;
+        -ms-flex: 12;
+            flex: 12;
+    text-align: center;
+}
+#main .contents .content .DataWrapper .datenumber {
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+          -ms-flex: 1;
+              flex: 1;
+      width: 20%;
+}
+#main .contents .content .DataWrapper .date {
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+          -ms-flex: 1;
+              flex: 1;
+      width: 20%;
+}
+#main .contents .content .DataWrapper .Content {
+      -webkit-box-flex: 3;
+      -webkit-flex: 3;
+          -ms-flex: 3;
+              flex: 3;
+      width: 60%;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-justify-content: space-around;
+          -ms-flex-pack: distribute;
+              justify-content: space-around;
+}
+#main .contents .content .DataWrapper .Content .item {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        color: #fff;
+        line-height: 25px;
+}
+#main .contents .content .DataWrapper .Content .number {
+        background: #39B54A;
+}
+#main .contents .content .DataWrapper .Content .dan {
+        background: red;
+}
+#main .contents .content .DataWrapper .Content .shuang {
+        background: #aaa;
+}
+#main .contents .content .DataWrapper .Content .wu {
+        background: #eee;
+}
+
