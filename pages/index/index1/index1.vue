@@ -1,5 +1,5 @@
 <template>
-	<view style="height: 100%">
+	<view style="height: 100%;padding-top: 10px;">
 		<view style="height: calc(100% - 50px); width: 100%;overflow: auto;">
 			<me v-if="pagecur==pagevar.me" @pagechage="pagechage"></me>
 			<index v-if="pagecur==pagevar.index" @pagechage="pagechage"></index>
