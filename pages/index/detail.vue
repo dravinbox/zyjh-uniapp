@@ -304,7 +304,7 @@
 		margin-top: 14px;
 		box-shadow: 0px 3px 9px 0px #555;
 		.li {
-			    height: 20px;
+			    // height: 20px;
 			    padding: 10px 20px;
 			    border-bottom: 1px solid #ccc;
 			    list-style: none;

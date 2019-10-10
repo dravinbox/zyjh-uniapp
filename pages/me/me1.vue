@@ -22,7 +22,7 @@
 				<view class="cu-modal" :class="modalName=='Modal'?'show':''">
 					<view class="cu-dialog">
 						<view class="cu-bar bg-white justify-end">
-							<view class="content">{{modalInit.title}}</view>
+							<view class="content" style="line-height: 0px;height: 0px;">{{modalInit.title}}</view>
 							<view class="action" @tap="hideModal">
 								<text class="cuIcon-close text-red"></text>
 							</view>

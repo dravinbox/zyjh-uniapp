@@ -5,8 +5,7 @@
 			<view class="screen">
 				<scroll-view scroll-x scroll-y="false" class="bg-white nav cate-bar">
 					<view class="number">
-						<view class="item" v-for="(item,index) in 10" @click="screen.indexOf(item-1)>=0?screen.splice(screen.indexOf(item-1),1):screen.push(item-1)"
-						>{{item}}</view>
+						<view class="item" v-for="(item,index) in [1,2,3,4,5,6,7,8,9,10]" @click="numberclick(index)" :class="numberclass(index)?'you1':'wu1'">{{index}}</view>
 					</view>
 				</scroll-view>
 				<view class="click">
@@ -30,7 +29,7 @@
 						<view class="datenumber">{{item.datenumber}}</view>
 						<view class="date">{{item.date}}</view>
 						<view class="Content">
-							<view class="item" v-for="it in item.Number" :class="screen.indexOf(it)>=0 || screen.length==0?typeclass(it):'wu'">{{typetext(it)}}</view>
+							<view class="item" v-for="it in item.Number" :class="typeclassbuer(it)?typeclass(it):'wu'">{{typetext(it)}}</view>
 						</view>
 					</view>
 				</view>
@@ -119,6 +118,16 @@
 			}
 		},
 		methods: {
+			numberclass(index){
+				if(this.screen.indexOf(index) >= 0){
+					return true
+				}else{
+					return false
+				}
+			},
+			numberclick(index){
+				this.screen.indexOf(index)>=0?this.screen.splice(this.screen.indexOf(index),1):this.screen.push(index)
+			},
 			pageherf(url){
 				this.$emit('pagechage',{pagecur:1,pagetab:1})
 			},
@@ -131,6 +140,14 @@
 				var type = this.type
 				var str = type==1?'number':type==2?(it%2==1?'dan':'shuang'):(it>=5?'dan':'shuang')
 				return str
+			},
+			typeclassbuer(it){
+				var screen = this.screen
+				if(screen.indexOf(it)>=0 || screen.length==0){
+					return true
+				}else{
+					return false
+				}
 			},
 			moduleclick(arr, claass) {
 				var s = this.screen
@@ -221,6 +238,7 @@
 			color: #222;
 
 			.number {
+				border: none;
 				.item {
 					width: 30px;
 					display: inline-block;
@@ -231,13 +249,14 @@
 					// background: red;
 				}
 
-				.you {
+				.you1 {
 					background: #39B54A;
 					color: #fff;
 				}
 
-				.wu {
-					// background: #eee;
+				.wu1 {
+					background: #eee;
+					color: #222;
 				}
 			}
 
@@ -260,6 +279,7 @@
 
 				.wu {
 					background: #eee;
+					color: #222;
 				}
 
 				.clear {
@@ -271,7 +291,8 @@
 					line-height: 28px;
 					display: inline-block;
 					float: right;
-					border: 2px solid #ddd;
+					border: 1px solid #aaa;
+					color: #222;
 				}
 			}
 		}
@@ -352,7 +373,7 @@
 							background: red;
 						}
 						.shuang{
-							background: #aaa;
+							background: #777;
 						}
 
 						.wu {

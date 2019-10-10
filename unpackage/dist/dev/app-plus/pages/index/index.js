@@ -1,0 +1,2 @@
+setCssToHead(["@charset \x22UTF-8\x22;\n.",[1],"index_id { width: 100%; height: 80%; overflow: hidden; }\n.",[1],"title_id { text-align: center; border-bottom: 1px solid #bfbfbf; line-height: 50px; font-size: 17px; background: #f4f4f4; height: 50px; }\n.",[1],"cate-bar { top: 50px; }\n.",[1],"item-list { width: 100%; padding-bottom: 50px; }\n",],undefined,{path:"./pages/index/index.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/index/index.wxml') } }));

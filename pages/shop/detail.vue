@@ -7,12 +7,12 @@
 			<view class="screen">
 				<scroll-view scroll-x scroll-y="false" class="bg-white nav cate-bar">
 					<view class="number">
-						<view class="item" v-for="(item,index) in [20,30,60,90]" @click="qishu=index" :class="qishu==index?'you':'wu'">最近{{item}}期数</view>
+						<view class="item" v-for="(item,index) in [20,30,60,90]" @click="qishuclick(index)" :class="qishu==index?'you':'wu'">最近{{item}}期1数</view>
 					</view>
 				</scroll-view>
 				<scroll-view scroll-x scroll-y="false" class="nav cate-bar">
 					<view class="click">
-						<view class="item" v-for="(item,index) in ['第一位','第二位','第三位','第四位','第五位','第六位']" @click="wei=index" :class="wei==index?'you':''">{{item}}</view>
+						<view class="item" v-for="(item,index) in ['第一位','第二位','第三位','第四位','第五位','第六位']" @click="rankclick(index)" :class="wei==index?'you':'wu'">{{item}}</view>
 					</view>
 				</scroll-view>
 			</view>
@@ -123,6 +123,12 @@
 			}
 		},
 		methods: {
+			rankclick(index){
+				this.wei=index
+			},
+			qishuclick(index){
+				this.qishu=index
+			},
 			pageherf(url) {
 				this.$emit('pagechage',{pagecur:2,pagetab:2})
 			},
@@ -247,15 +253,17 @@
 			.click {
 				.item {
 					width: 20%;
-					height: 50px;
+					height: 20px;
 					color: #777;
 					text-align: center;
-					line-height: 50px;
+					line-height: 20px;
 					display: inline-block;
+					background: none;
 				}
 
 				.you {
 					color: #39B54A;
+					background: none;
 				}
 			}
 		}

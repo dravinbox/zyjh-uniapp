@@ -6,7 +6,7 @@
 			</view>
 		</view>
 		<view id="main" class="main_id">
-			<view id="switch" class="switch_id">
+			<view id="switch" class="switch_ids">
 				<view class="" style="white-space: nowrap;">
 					请复制下方网址并保存，当app不可用时，便于下载最新版本。
 				</view>
@@ -145,7 +145,7 @@
 			overflow: auto;
 		padding-bottom: 50px;
 
-			.switch_id {
+			.switch_ids {
 				// height: 40px;
 				    height: 50px;
 				    padding: 5px;

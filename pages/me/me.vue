@@ -24,7 +24,7 @@
 			</view>
 			<view class="list">
 				<li v-for="item in checkboxS">重庆时时彩 <label>
-						<checkbox :class="item.checked?'checked':''" :checked="item.checked" :value="item.value" @click="item.checked = !item.checked" style="transform:scale(0.7);float:right;"></checkbox>
+						<checkbox :class="item.checked?'checked':''" :checked="item.checked" :value="item.value" @click="checkedclick(item)" style="transform:scale(0.7);float:right;"></checkbox>
 						</label>
 						</li>
 			</view>
@@ -93,6 +93,9 @@
 			}
 		},
 		methods: {
+			checkedclick(item){
+				item = !item
+			},
 			changetab(index){
 				this.clickscreen=index
 			},
@@ -183,6 +186,8 @@
 					// margin-top: 20px;
 					// min-width: 16%;
 					text-align: center;
+					height: 20px;
+					line-height: 20px;
 
 					// flex: 1;
 					span {
