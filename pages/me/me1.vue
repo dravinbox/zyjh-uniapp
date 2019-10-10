@@ -203,8 +203,8 @@
 			}
 
 			.list {
-				height: calc(100% - 60px);
-				overflow: auto;
+				height: calc(100% - 100%);
+				overflow: hidden;
 
 				>li {
 					list-style: none;
