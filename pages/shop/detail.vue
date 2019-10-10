@@ -20,7 +20,9 @@
 				<view class="tiaoxings">
 					<view class="tiaoxing" v-for="(item,index) in data">
 						<view style="padding:0 5px;">{{index}}</view>
-						<view :style="'flex:'+item.tiao/big+' 0 0%;background:'+item.color"></view>
+						<view style="flex:1;">
+							<view class="" :style="'width:'+item.tiao/big*100+'%;background:'+item.color"></view>
+						</view>
 						<view style="padding:0 5px;">{{item.tiao}}次</view>
 					</view>
 				</view>

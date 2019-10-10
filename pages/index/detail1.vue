@@ -83,7 +83,7 @@
 
 
 		<!-- 首页列表 -->
-		<scroll-view scroll-y scroll-with-animation :scroll-top="scrollTop" class="item-list" style="height: calc(100% - 168px - 144px);">
+		<scroll-view scroll-y scroll-with-animation :scroll-top="scrollTop" class="item-list" style="height: calc(100% - 168px - 144px);padding-bottom: 204px;;">
 
 
 			<view class="flex justify-between bg-white" style="margin-bottom: 10px;">
@@ -103,6 +103,9 @@
 		</scroll-view>
 
 		<view class="footer" style="position: fixed;bottom: 0;background: #fff;width: 100%;">
+			<view style="height: 60px;">
+				<image src="../../static/logo-zy.png" mode="" style="width: 100%;height: 100%;"></image>
+			</view>
 			<view class="card" style="background: #a0a0a0;color: #fff;padding-left: 10px;line-height: 22px;font-size: 12px;">
 				<view>已完成16个周期，正确率100.0%，错误0个。</view>
 				<view>已完成16个周期，正确率100.0%，错误0个。</view>
@@ -139,17 +142,17 @@
 					'codeNum': 5,
 					'nper': ['进行中'],
 					'rate': [1, 4, 8, 3, 2],
-				}, {
+				},{
 					'planName': '001-003',
 					'codeNum': 5,
 					'nper': ['9', '4', 8, 3, 2],
 					'rate': [1, 4, 8, 3, 2],
-				}, {
+				},{
 					'planName': '001-003',
 					'codeNum': 5,
 					'nper': ['9', '4', 8, 3, 2],
 					'rate': [1, 4, 8, 3, 2],
-				}, {
+				},{
 					'planName': '001-003',
 					'codeNum': 5,
 					'nper': ['9', '4', 8, 3, 2],

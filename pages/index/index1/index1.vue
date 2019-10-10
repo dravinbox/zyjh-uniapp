@@ -12,20 +12,20 @@
 		</view>
 		<view class="cu-bar tabbar bg-white shadow foot">
 			<view class="action" :class="pagetab==pagevar.index?'new-text-blue':'new-text-black'" @click="NavChange(pagevar.index)" data-cur="home">
-				<view :class="pagetab==pagevar.index?'cuIcon-homefill':'cuIcon-home'"></view>
+				<image :src="pagetab==pagevar.index?'../../../static/logo/home.jpg':'../../../static/logo/home1.jpg'" mode="" style="width: 20px;height: 20px;margin: 0 auto 5px;"></image>
+				<!-- <view :class="pagetab==pagevar.index?'cuIcon-homefill':'cuIcon-home'"></view> -->
 				<view>首页</view>
 			</view>
 			<view class="action " :class="pagetab==pagevar.movement?'new-text-blue':'new-text-black'" @click="NavChange(pagevar.movement)" data-cur="movements">
-				<view :class="pagetab==pagevar.movement?'cuIcon-rank':'cuIcon-rankfill'"></view>
+				<image :src="pagetab==pagevar.movement?'../../../static/logo/movement.jpg':'../../../static/logo/movement1.jpg'" mode="" style="width: 20px;height: 20px;margin: 0 auto 5px;"></image>
 				<view>走势</view>
 			</view>
 			<view class="action " :class="pagetab==pagevar.shop?'new-text-blue':'new-text-black'" @click="NavChange(pagevar.shop)" data-cur="shop">
-				<view :class="pagetab==pagevar.shop?'cuIcon-cart':'cuIcon-cartfill'"></view>
+				<image :src="pagetab==pagevar.shop?'../../../static/logo/shop.jpg':'../../../static/logo/shop1.jpg'" mode="" style="width: 20px;height: 20px;margin: 0 auto 5px;"></image>
 				<view>购买</view>
 			</view>
 			<view class="action" :class="pagetab==pagevar.me?'new-text-blue':'new-text-black'" @click="NavChange(pagevar.me)" data-cur="me">
-				<view :class="pagetab=='me'?'cuIcon-myfill':'cuIcon-my'">
-				</view>
+				<image :src="pagetab==pagevar.me?'../../../static/logo/set.jpg':'../../../static/logo/set1.jpg'" mode="" style="width: 20px;height: 20px;margin: 0 auto 5px;"></image>
 				<view>我的</view>
 			</view>
 		</view>
