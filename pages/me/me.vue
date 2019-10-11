@@ -93,6 +93,11 @@
 			}
 		},
 		methods: {
+			SetShadow(e){
+				console.log('SetShadow')
+				console.log(e)
+				this.shadow = !this.shadow
+			},
 			checkedclick(item){
 				item = !item
 			},
